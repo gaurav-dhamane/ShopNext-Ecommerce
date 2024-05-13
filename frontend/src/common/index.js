@@ -1,4 +1,4 @@
-const backendDomin = "http://localhost:8080"
+const backendDomin = "https://shopnext-ecommerce-edby.onrender.com/"
 
 const SummaryApi = {
     signUP : {
