@@ -1,7 +1,5 @@
 import { createContext } from "react";
 
-const Context = createContext({
-  dispatch: () => {}, // Default dispatch function
-});
+const Context = createContext(null)
 
-export default Context;
+export default Context
