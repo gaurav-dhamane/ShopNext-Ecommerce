@@ -1,4 +1,4 @@
-const backendDomin = "https://shopnext-ecommerce-edby.onrender.com"
+const backendDomin = process.env.BACKEND_URL
 
 const SummaryApi = {
     signUP : {
