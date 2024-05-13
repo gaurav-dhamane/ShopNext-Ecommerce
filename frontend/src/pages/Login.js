@@ -44,6 +44,7 @@ const Login = () => {
 
         if(dataApi.success){
             toast.success(dataApi.message)
+            console.log(dataResponse)
             navigate('/')
             fetchUserDetails()
             fetchUserAddToCart()
