@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import SummaryApi from '../common';
 import { toast } from 'react-toastify';
 import Context from '../context';
-import { setUserDetails } from './userSlice'; // Import the setUserDetails action
+import { setUserDetails } from '../store/userSlice'; // Import the setUserDetails action
 
 const Login = () => {
     const [showPassword,setShowPassword] = useState(false)
