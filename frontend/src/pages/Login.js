@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import SummaryApi from '../common';
 import { toast } from 'react-toastify';
 import Context from '../context';
+import { setUserDetails } from './userSlice'; // Import the setUserDetails action
 
 const Login = () => {
     const [showPassword,setShowPassword] = useState(false)
@@ -14,7 +15,7 @@ const Login = () => {
         password : ""
     })
     const navigate = useNavigate()
-    const { fetchUserDetails, fetchUserAddToCart } = useContext(Context)
+    const { fetchUserDetails, fetchUserAddToCart, dispatch } = useContext(Context) // Destructure dispatch from the context
 
     const handleOnChange = (e) =>{
         const { name , value } = e.target
@@ -23,7 +24,7 @@ const Login = () => {
             return{
                 ...preve,
                 [name] : value
-            }
+            } 
         })
     }
 
@@ -45,6 +46,10 @@ const Login = () => {
         if(dataApi.success){
             toast.success(dataApi.message)
             console.log(dataResponse)
+
+            // Dispatch setUserDetails action with the token
+            dispatch(setUserDetails(dataApi.data));
+
             navigate('/')
             fetchUserDetails()
             fetchUserAddToCart()
