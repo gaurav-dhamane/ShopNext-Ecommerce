@@ -6,13 +6,13 @@ async function userSignUpController(req,res){
     try{
         const { email, password, name} = req.body
 
-        // const user = await userModel.findOne({email})
+        const user = await userModel.findOne({email})
 
-        // console.log("user",user)
+        console.log("user",user)
 
-        // if(user){
-        //     throw new Error("Already user exits.")
-        // }
+        if(user){
+            throw new Error("Already user exits.")
+        }
 
         if(!email){
            throw new Error("Please provide email")
