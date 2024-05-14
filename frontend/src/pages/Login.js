@@ -7,6 +7,11 @@ import SummaryApi from '../common';
 import { toast } from 'react-toastify';
 import Context from '../context';
 
+import { useDispatch } from 'react-redux'; // Import useDispatch hook
+import { setUserDetails } from '../userSlice'; // Import setUserDetails action from userSlice
+
+
+
 const Login = () => {
     const [showPassword,setShowPassword] = useState(false)
     const [data,setData] = useState({
@@ -14,6 +19,7 @@ const Login = () => {
         password : ""
     })
     const navigate = useNavigate()
+    const dispatch = useDispatch();
     const { fetchUserDetails, fetchUserAddToCart } = useContext(Context)
 
     const handleOnChange = (e) =>{
@@ -41,14 +47,14 @@ const Login = () => {
         })
 
         const dataApi = await dataResponse.json()
-        
 
         if(dataApi.success){
             toast.success(dataApi.message)
-            console.log(dataApi)
+            console.log(dataResponse)
             navigate('/')
-            fetchUserDetails()
-            fetchUserAddToCart()
+            dispatch(setUserDetails(dataApi.user));
+            // fetchUserDetails()
+            // fetchUserAddToCart()
         }
 
         if(dataApi.error){
