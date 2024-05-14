@@ -29,7 +29,7 @@ async function userSignInController(req,res){
             _id : user._id,
             email : user.email,
         }
-        const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET_KEY, { expiresIn: 60 * 60 * 8 });
+        const token = await jwt.sign(tokenData, process.env.TOKEN_SECRET_KEY, { expiresIn: 7 * 24 * 60 * 60 * 1000 });
         console.log(token)
 
         const tokenOption = {
@@ -43,6 +43,8 @@ async function userSignInController(req,res){
             success : true, 
             error : false
         })
+
+           res.json({ accessToken });
 
        }else{
          throw new Error("Please check Password")
