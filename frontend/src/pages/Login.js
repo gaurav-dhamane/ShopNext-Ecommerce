@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 import Context from '../context';
 
 import { useDispatch } from 'react-redux'; // Import useDispatch hook
-import { setUserDetails } from '../store/userSlice';// Import setUserDetails action from userSlice
+import { setUserDetails } from '../store/userSlice'; // Import setUserDetails action from userSlice
 
 
 
@@ -50,11 +50,10 @@ const Login = () => {
 
         if(dataApi.success){
             toast.success(dataApi.message)
-            console.log("token re",dataApi)
+            navigate('/')
+            dispatch(setCredentials( dataApi.data ));
             fetchUserDetails()
             fetchUserAddToCart()
-            navigate('/')
-            
         }
 
         if(dataApi.error){
