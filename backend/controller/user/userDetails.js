@@ -16,7 +16,7 @@ async function userDetailsController(req,res){
 
     }catch(err){
         res.status(400).json({
-            message : err.message || err,
+            message : "there is error in userdetail",
             error : true,
             success : false
         })
