@@ -53,8 +53,8 @@ const Login = () => {
             console.log(dataResponse)
             navigate('/')
             dispatch(setUserDetails(dataApi.user));
-            // fetchUserDetails()
-            // fetchUserAddToCart()
+            fetchUserDetails()
+            fetchUserAddToCart()
         }
 
         if(dataApi.error){
