@@ -50,11 +50,10 @@ const Login = () => {
 
         if(dataApi.success){
             toast.success(dataApi.message)
-            console.log(dataApi)
+            console.log("token re",dataApi)
             navigate('/')
-            dispatch(setUserDetails(dataApi.user));
-            fetchUserDetails()
-            fetchUserAddToCart()
+            // fetchUserDetails()
+            // fetchUserAddToCart()
         }
 
         if(dataApi.error){
