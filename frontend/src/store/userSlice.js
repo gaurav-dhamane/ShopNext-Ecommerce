@@ -9,12 +9,16 @@ const initialState = {
     name: 'user',
     initialState,
     reducers: {
+      setCredentials: (state, action) => {
+        const { accessToken } = action.payload
+        state.token = accessToken
+    },
       setUserDetails : (state,action)=>{
         state.user = action.payload
       }
     },
   })
-  
+   
   // Action creators are generated for each case reducer function
   export const { setUserDetails } = userSlice.actions
   
