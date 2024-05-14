@@ -44,7 +44,7 @@ async function userSignInController(req,res){
             error : false
         })
 
-           res.json({ accessToken });
+           res.json({ token });
 
        }else{
          throw new Error("Please check Password")
